@@ -7,7 +7,7 @@ SYMBOLS = list('!"#$%&\'()*+,-./:;?@[]^_`{|}~')
 
 def generate_password():
     # Start coding here
-    password = '';
+    password = [];
     string_lenght = random.randint(8,16)
     for i in range(string_lenght):
         if i % 4 == 0:
@@ -18,9 +18,11 @@ def generate_password():
             char = chr(random.randint(48,57))
         elif i % 4 == 3:
             char = SYMBOLS[random.randint(0,27)]
-        password = password + char
-    print(password)
-    return password
+        password.append(char)
+
+    random.shuffle(password)
+    
+    return ''.join(password)
 
 def validate(password):
 
